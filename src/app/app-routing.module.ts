@@ -33,6 +33,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/user/user.module').then(m => m.UserModule),
   },
+  {
+    path: ROUTES.graph,
+    loadChildren: () =>
+      import('./modules/graph/graph.module').then(m => m.GraphModule),
+  },
   { path: ROUTES.notFound, component: NotFoundComponent },
   { path: '**', redirectTo: ROUTES.notFound },
 ];

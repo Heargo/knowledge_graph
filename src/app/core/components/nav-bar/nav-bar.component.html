@@ -17,6 +17,12 @@
       >Starter kit</a
     >
     <a
+      (click)="phoneMenuOpen = false"
+      routerLink="/graph"
+      routerLinkActive="active"
+      >Graph</a
+    >
+    <!-- <a
       *ngIf="!authService.connected"
       (click)="phoneMenuOpen = false"
       routerLink="auth/login"
@@ -37,7 +43,7 @@
       routerLink="user/profile"
       routerLinkActive="active"
       >Profil</a
-    >
+    > -->
   </div>
   <div class="menu nav-icon">
     <img
