@@ -1,59 +1,331 @@
 {
-  "alcool": {
-    "raw": {
-      "low": {},
-      "medium": {},
-      "high": {}
+  "drinks": {
+    "soft": {
+      "sirops": [
+        "sirop de sucre de canne",
+        "sirop de grenadine",
+        "sirop de menthe",
+        "sirop de fraise",
+        "sirop de framboise",
+        "sirop de cassis",
+        "sirop de pêche"
+      ],
+      "jus": [
+        "jus de citron",
+        "jus de citron vert",
+        "jus d'orange",
+        "jus d'ananas",
+        "jus de pamplemousse",
+        "jus de tomate",
+        "jus de cranberry",
+        "jus de pomme",
+        "jus de raisin",
+        "jus de pêche",
+        "jus de poire",
+        "jus de mangue",
+        "jus de goyave",
+        "jus de fruit de la passion",
+        "jus de litchi",
+        "jus de banane",
+        "jus de kiwi",
+        "jus de fraise",
+        "jus de framboise",
+        "jus de cassis",
+        "jus de cerise",
+        "jus de melon"
+      ],
+      "soda": [
+        "Coca Cola",
+        "Sprite",
+        "Schweppes Agrum",
+        "Schweppes Tonic",
+        "Fanta",
+        "Orangina",
+        "Perrier",
+        "Perrier Citron",
+        "Perrier Menthe",
+        "Ice Tea"
+      ]
     },
-    "mixed": {
-      "cocktail": {
-        "bloodyMary": {
-          "raw": {
-            "alcool": ["vodka"],
-            "soft": ["tomatoJuice"]
+    "alcool": {
+      "raw": {
+        "low": {
+          "beer": {
+            "light": {
+              "blanche": [],
+              "blonde": [],
+              "rousse": []
+            },
+            "IPA": {
+              "blanche": [],
+              "blonde": [],
+              "rousse": []
+            },
+            "dark": {
+              "brown": [],
+              "stout": []
+            }
           },
-          "sideIngredients": [
-            "salt",
-            "pepper",
-            "tabasco",
-            "worcestershireSauce",
-            "lemonJuice",
-            "celery",
-            "ice"
-          ],
-          "glass": "highball",
-          "objects": ["shaker"],
-          "taste": {
-            "sweet": 0.2,
-            "bitter": 0.4,
-            "sour": 0.4,
-            "spiced": 0.8
+          "cider": {
+            "soft": [],
+            "brut": []
+          }
+        },
+        "medium": {
+          "wine": {
+            "white": {
+              "dry": [],
+              "sweet": []
+            },
+            "red": {
+              "dry": [],
+              "sweet": []
+            },
+            "rose": {
+              "dry": [],
+              "sweet": []
+            }
+          }
+        },
+        "high": {
+          "spirit": {
+            "vodka": [],
+            "gin": [],
+            "rum": [],
+            "tequila": [],
+            "whisky": [],
+            "cognac": [],
+            "liqueur": []
+          },
+          "fortifiedWine": {
+            "vermouth": [],
+            "porto": [],
+            "sherry": []
           }
         }
       },
-      "taste": {}
+      "mixed": {
+        "cocktails": [
+          {
+            "name": "Bloody Mary",
+            "ingredients": {
+              "alcool": ["vodka"],
+              "soft": ["jus de tomate"],
+              "side": [
+                "sel",
+                "poivre",
+                "tabasco",
+                "worcestershireSauce",
+                "jus de citron",
+                "céleri",
+                "glace"
+              ]
+            },
+            "glass": "highball",
+            "objects": ["shaker"],
+            "taste": {
+              "sweet": 0.2,
+              "bitter": 0.4,
+              "sour": 0.4,
+              "spiced": 0.8
+            }
+          },
+          {
+            "name": "Mojito",
+            "ingredients": {
+              "alcool": ["rhum"],
+              "soft": ["sirop de sucre de canne", "jus de citron vert", "soda"],
+              "side": ["menthe", "citron vert", "sucre", "glace"]
+            },
+            "glass": "verre a cocktail",
+            "objects": ["pilon"],
+            "taste": {
+              "sweet": 0.6,
+              "bitter": 0.2,
+              "sour": 0.8,
+              "spiced": 0.2
+            }
+          },
+          {
+            "name": "Piña Colada",
+            "ingredients": {
+              "alcool": ["rhum"],
+              "soft": ["jus d'ananas", "lait de coco"],
+              "side": []
+            },
+            "glass": "verre a cocktail",
+            "objects": ["shaker"],
+            "taste": {
+              "sweet": 0.9,
+              "bitter": 0.1,
+              "sour": 0.3,
+              "spiced": 0.1
+            }
+          },
+
+          {
+            "name": "Gin Tonic",
+            "ingredients": {
+              "alcool": ["gin"],
+              "soft": ["schweppes tonic"],
+              "side": ["citron"]
+            },
+            "glass": "verre a cocktail",
+            "objects": [],
+            "taste": {
+              "sweet": 0.1,
+              "bitter": 0.7,
+              "sour": 0.3,
+              "spiced": 0.2
+            }
+          },
+          {
+            "name": "Tequila Sunrise",
+            "ingredients": {
+              "alcool": ["tequila"],
+              "soft": ["jus d'orange", "sirop de grenadine"],
+              "side": ["orange slice", "cerise"]
+            },
+            "glass": "verre a cocktail",
+            "objects": [],
+            "taste": {
+              "sweet": 0.8,
+              "bitter": 0.2,
+              "sour": 0.4,
+              "spiced": 0.1
+            }
+          },
+          {
+            "name": "Cosmopolitan",
+            "ingredients": {
+              "alcool": ["vodka"],
+              "soft": ["jus de canneberge", "triple sec", "jus de citron"],
+              "side": ["zeste d'orange"]
+            },
+            "glass": "verre a cocktail",
+            "objects": ["shaker"],
+            "taste": {
+              "sweet": 0.7,
+              "bitter": 0.3,
+              "sour": 0.6,
+              "spiced": 0.1
+            }
+          },
+          {
+            "name": "Margarita",
+            "ingredients": {
+              "alcool": ["tequila"],
+              "soft": ["jus de citron", "sirop d'agave"],
+              "side": ["sel (pour le bord du verre)"]
+            },
+            "glass": "verre a cocktail",
+            "objects": ["shaker"],
+            "taste": {
+              "sweet": 0.4,
+              "bitter": 0.2,
+              "sour": 0.8,
+              "spiced": 0.2
+            }
+          },
+          {
+            "name": "Martini",
+            "ingredients": {
+              "alcool": ["gin"],
+              "side": ["vermouth"],
+              "soft": []
+            },
+            "taste": {
+              "sweet": 0.1,
+              "bitter": 0.7,
+              "sour": 0.2,
+              "spiced": 0.1
+            },
+            "glass": "verre a cocktail",
+            "objects": ["shaker"]
+          },
+          {
+            "name": "Whiskey Sour",
+            "ingredients": {
+              "alcool": ["whisky"],
+              "soft": ["jus de citron", "sirop de sucre"],
+              "side": []
+            },
+            "taste": {
+              "sweet": 0.6,
+              "bitter": 0.3,
+              "sour": 0.8,
+              "spiced": 0.2
+            },
+            "glass": "verre a cocktail",
+            "objects": ["shaker"]
+          },
+          {
+            "name": "Espresso Martini",
+            "ingredients": {
+              "alcool": ["vodka"],
+              "soft": ["liqueur de café", "expresso"],
+              "side": []
+            },
+            "glass": "verre a cocktail",
+            "objects": ["shaker"],
+            "taste": {
+              "sweet": 0.8,
+              "bitter": 0.7,
+              "sour": 0.1,
+              "spiced": 0.2
+            }
+          }
+        ],
+        "arranged": {
+          "rhum": [],
+          "vodka": []
+        }
+      }
     }
   },
   "object": {
     "container": {
-      "mixer": {},
-      "serving": {},
-      "doser": {}
+      "mixer": ["shaker", "blender"],
+      "serving": [
+        "verre a cocktail",
+        "verre a vin",
+        "verre a shot",
+        "verre a liqueur",
+        "verre a biere",
+        "verre a whisky"
+      ],
+      "doser": ["2cl doseur", "4cl doseur", "5cl doseur"]
     },
     "nonContainer": {
-      "mixer": {},
-      "serving": {},
-      "tools": {}
+      "mixer": ["cuillère"],
+      "serving": ["paille", "parasol", "dessous de verre"],
+      "tools": [
+        "couteau",
+        "planche a découper",
+        "presse agrume",
+        "zesteur",
+        "pillon",
+        "pince a glaçon",
+        "pic a glace"
+      ]
     }
   },
   "sideIngredients": {
-    "decoration": {},
-    "sweetener": {},
-    "bitter": {},
-    "sour": {},
-    "spice": {},
-    "fruit": {},
-    "herb": {},
-    "other": {}
+    "decoration": ["colorant alimentaire", "sucre glace", "sucre en poudre"],
+    "sweetener": ["vanille", "sucre"],
+    "bitter": ["bitter"],
+    "sour": [],
+    "spice": [
+      "cannelle",
+      "gingembre",
+      "muscade",
+      "poivre",
+      "piment",
+      "clou de girofle",
+      "tabasco"
+    ],
+    "fruit": ["citron", "citron vert"],
+    "herb": ["menthe", "basilic", "thym", "romarin", "ciboulette", "coriandre"],
+    "other": ["sel"]
   }
 }

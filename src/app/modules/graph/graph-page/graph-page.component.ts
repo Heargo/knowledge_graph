@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GraphService } from '../services/graph.service';
 import { BaseAppComponent } from '../../../core/components/base-app/base-app.component';
-import { GameList } from '../models/graph.models';
+import { Cocktail } from '../models/graph.models';
 
 @Component({
   selector: 'app-graph-page',
@@ -9,24 +9,23 @@ import { GameList } from '../models/graph.models';
   styleUrls: ['./graph-page.component.scss'],
 })
 export class GraphPageComponent extends BaseAppComponent implements OnInit {
-  games!: GameList;
-  categories!: any[];
-
+  cocktail!: Cocktail;
+  newCocktail!: Cocktail;
   constructor(private readonly graphService: GraphService) {
     super();
   }
-  shuffleCategorie() {
-    this.categories.sort(() => Math.random() - 0.5);
-  }
 
   ngOnInit() {
-    this.games = this.graphService.getGames();
-    this.categories = this.graphService.getCategories();
-    //sort by name
-    this.categories.sort((a, b) => {
-      return a.name.localeCompare(b.name);
-    });
-    console.log(this.categories);
-    this.graphService.parseText();
+    this.cocktail = this.graphService.getRandomCocktail();
+    this.newCocktail = this.graphService.createRandomCocktailVariant(
+      this.cocktail,
+      0.7,
+      {
+        alcool: 1,
+        soft: 1,
+        side: 1,
+        variation: 1,
+      }
+    );
   }
 }

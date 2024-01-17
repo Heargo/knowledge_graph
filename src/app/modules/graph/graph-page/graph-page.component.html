@@ -2,6 +2,8 @@
   <!-- <div *ngFor="let cat of categories">
     <p>{{ cat.name }} ({{ cat.games.length }})</p>
   </div> -->
-  <button (click)="shuffleCategorie()">shuffle</button>
-  <app-animated-list [articles]="categories"></app-animated-list>
+  <p>true</p>
+  <p *ngIf="cocktail">{{ cocktail | json }}</p>
+  <p>new</p>
+  <p *ngIf="cocktail">{{ newCocktail | json }}</p>
 </div>
