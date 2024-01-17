@@ -15,6 +15,9 @@ export class GraphPageComponent extends BaseAppComponent implements OnInit {
   constructor(private readonly graphService: GraphService) {
     super();
   }
+  shuffleCategorie() {
+    this.categories.sort(() => Math.random() - 0.5);
+  }
 
   ngOnInit() {
     this.games = this.graphService.getGames();
@@ -24,5 +27,6 @@ export class GraphPageComponent extends BaseAppComponent implements OnInit {
       return a.name.localeCompare(b.name);
     });
     console.log(this.categories);
+    this.graphService.parseText();
   }
 }

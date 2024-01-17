@@ -1,5 +1,7 @@
 <div class="main-container flex-col">
-  <div *ngFor="let cat of categories">
+  <!-- <div *ngFor="let cat of categories">
     <p>{{ cat.name }} ({{ cat.games.length }})</p>
-  </div>
+  </div> -->
+  <button (click)="shuffleCategorie()">shuffle</button>
+  <app-animated-list [articles]="categories"></app-animated-list>
 </div>

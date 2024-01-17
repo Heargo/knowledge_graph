@@ -1,0 +1,10 @@
+<div class="list-container">
+  <div
+    class="list-item"
+    [style.transform]="transform(i)"
+    *ngFor="let article of articles; let i = index; trackBy: trackBy">
+    <div class="content">
+      <p>{{ article.name }}</p>
+    </div>
+  </div>
+</div>

@@ -12,3 +12,13 @@ export interface Ontology {
 }
 
 export type GameList = { [key: string]: string[] };
+
+export interface TextInfo {
+  text: string;
+  categories: TextCategory[];
+}
+
+export interface TextCategory {
+  name: string;
+  accuracy: number;
+}

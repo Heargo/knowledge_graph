@@ -1,0 +1,59 @@
+{
+  "alcool": {
+    "raw": {
+      "low": {},
+      "medium": {},
+      "high": {}
+    },
+    "mixed": {
+      "cocktail": {
+        "bloodyMary": {
+          "raw": {
+            "alcool": ["vodka"],
+            "soft": ["tomatoJuice"]
+          },
+          "sideIngredients": [
+            "salt",
+            "pepper",
+            "tabasco",
+            "worcestershireSauce",
+            "lemonJuice",
+            "celery",
+            "ice"
+          ],
+          "glass": "highball",
+          "objects": ["shaker"],
+          "taste": {
+            "sweet": 0.2,
+            "bitter": 0.4,
+            "sour": 0.4,
+            "spiced": 0.8
+          }
+        }
+      },
+      "taste": {}
+    }
+  },
+  "object": {
+    "container": {
+      "mixer": {},
+      "serving": {},
+      "doser": {}
+    },
+    "nonContainer": {
+      "mixer": {},
+      "serving": {},
+      "tools": {}
+    }
+  },
+  "sideIngredients": {
+    "decoration": {},
+    "sweetener": {},
+    "bitter": {},
+    "sour": {},
+    "spice": {},
+    "fruit": {},
+    "herb": {},
+    "other": {}
+  }
+}

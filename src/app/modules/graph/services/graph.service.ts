@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
-import { GameGraph, Ontology } from '../models/graph.models';
+import { GameGraph, Ontology, TextInfo } from '../models/graph.models';
 import * as jsonData from '../../../../assets/json/data.json';
+import { HttpClient } from '@angular/common/http';
+import { filter, firstValueFrom, map, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GraphService {
-  private _graphData: GameGraph;
+  private graphData: GameGraph;
+  private textData: TextInfo[] = [];
 
-  constructor() {
+  constructor(private readonly httpClient: HttpClient) {
     //load json from assets
-    this._graphData = jsonData;
+    this.graphData = jsonData;
   }
 
   getGames() {
-    return this._graphData.games;
+    return this.graphData.games;
   }
 
   getGamesFromSub(sub: Ontology) {
@@ -31,7 +34,7 @@ export class GraphService {
     return games;
   }
 
-  getCategories(subs: Ontology[] = this._graphData.ontology.subs) {
+  getCategories(subs: Ontology[] = this.graphData.ontology.subs) {
     //for each subcategory, get the name and all the game in subcategories
     let categories: any[] = [];
 
@@ -46,5 +49,53 @@ export class GraphService {
     }
 
     return categories;
+  }
+
+  async parseText() {
+    //texts are split by "------"
+    const textData$ = this.httpClient
+      .get('assets/json/allTexts.txt', { responseType: 'text' })
+      .pipe(
+        take(1),
+        map((data: string) => {
+          const texts = data.split(
+            '-------------------------------------------------------------------------------------------------------------------------'
+          );
+          return texts;
+        }),
+        map((texts: string[]) => {
+          //filter all text that are not "" or only -
+          let res = texts.filter(
+            text => text.trim() !== '' && text.trim() !== '-'
+          );
+          //remove all \n in texts
+          res = res.map(text => text.replace(/\n/g, ''));
+          return res;
+        })
+      );
+    let textes = await firstValueFrom(textData$);
+    console.log(textes);
+
+    //for each category, look if it's in the text and calculate the accuracy
+    const categories = this.getCategories();
+    console.log(categories);
+    for (let text of textes) {
+      const textCategories: any[] = [];
+      for (let category of categories) {
+        const regex = new RegExp(category.name, 'gi');
+        const matches = text.match(regex);
+        if (matches) {
+          textCategories.push({
+            name: category.name,
+            accuracy: matches.length * 0.2,
+          });
+        }
+      }
+      this.textData.push({
+        text: text,
+        categories: textCategories,
+      });
+    }
+    console.log(this.textData);
   }
 }
