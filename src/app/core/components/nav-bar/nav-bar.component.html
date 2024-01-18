@@ -22,6 +22,18 @@
       routerLinkActive="active"
       >Graph</a
     >
+    <a
+      (click)="phoneMenuOpen = false"
+      routerLink="/graph/search"
+      routerLinkActive="active"
+      >Search</a
+    >
+    <a
+      (click)="phoneMenuOpen = false"
+      routerLink="/graph/variation"
+      routerLinkActive="active"
+      >Variation</a
+    >
     <!-- <a
       *ngIf="!authService.connected"
       (click)="phoneMenuOpen = false"

@@ -1,0 +1,71 @@
+<div class="main-container flex-row top center">
+  <div class="flex-col">
+    <h3>Inspiration</h3>
+    <app-cocktail-card [cocktail]="cocktail"></app-cocktail-card>
+  </div>
+  <div class="flex-col" *ngIf="creationForm">
+    <h3>Settings</h3>
+    <form [formGroup]="creationForm" class="flex-col center top">
+      <input
+        type="number"
+        formControlName="variationIntensity"
+        class="basic"
+        id="variationIntensity"
+        max="1"
+        min="0"
+        step="0.05"
+        placeholder="variationIntensity" />
+
+      <div class="flex-col">
+        <div>
+          <p>Alcool</p>
+          <input
+            type="number"
+            formControlName="alcool"
+            class="basic"
+            id="alcool"
+            max="1"
+            min="0"
+            step="0.05"
+            placeholder="nb of alcool to change" />
+        </div>
+        <div>
+          <p>Soft</p>
+          <input
+            type="number"
+            formControlName="soft"
+            class="basic"
+            id="soft"
+            max="1"
+            min="0"
+            step="0.05"
+            placeholder="nb of soft to change" />
+        </div>
+        <div>
+          <p>Side</p>
+          <input
+            type="number"
+            formControlName="side"
+            class="basic"
+            id="side"
+            max="1"
+            min="0"
+            step="0.05"
+            placeholder="nb of side to change" />
+        </div>
+      </div>
+      <div class="flex-row">
+        <button type="submit" (click)="generateNewCocktail()" class="primary">
+          Generate new cocktail
+        </button>
+        <button (click)="generateNewRandomCocktail()" class="primary">
+          Random
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="flex-col" *ngIf="newCocktail">
+    <h3>Generated cocktail</h3>
+    <app-cocktail-card [cocktail]="newCocktail"></app-cocktail-card>
+  </div>
+</div>
