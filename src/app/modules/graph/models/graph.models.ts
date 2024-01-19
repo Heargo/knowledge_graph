@@ -65,7 +65,7 @@ export interface FortifiedWine {
 export interface Spirit {
   vodka: string[];
   gin: string[];
-  rum: string[];
+  rhum: string[];
   tequila: string[];
   whisky: string[];
   cognac: string[];

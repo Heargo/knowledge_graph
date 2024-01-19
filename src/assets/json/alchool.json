@@ -32,7 +32,8 @@
         "jus de framboise",
         "jus de cassis",
         "jus de cerise",
-        "jus de melon"
+        "jus de melon",
+        "lait de coco"
       ],
       "soda": [
         "Coca Cola",
@@ -44,7 +45,9 @@
         "Perrier",
         "Perrier Citron",
         "Perrier Menthe",
-        "Ice Tea"
+        "Ice Tea",
+        "Limonade",
+        "Expresso"
       ]
     },
     "alcool": {
@@ -91,11 +94,14 @@
           "spirit": {
             "vodka": [],
             "gin": [],
-            "rum": [],
+            "rhum": [],
             "tequila": [],
             "whisky": [],
             "cognac": [],
-            "liqueur": []
+            "liqueur": [
+              "triple sec",
+              "liqueur de café"
+            ]
           },
           "fortifiedWine": {
             "vermouth": [],
@@ -110,19 +116,18 @@
             "name": "Bloody Mary",
             "ingredients": {
               "alcool": [
-                "vodka"
+                "spirit>vodka"
               ],
               "soft": [
-                "jus de tomate"
+                "jus>jus de tomate"
               ],
               "side": [
-                "sel",
-                "poivre",
-                "tabasco",
-                "worcestershireSauce",
-                "jus de citron",
-                "céleri",
-                "glace"
+                "other>sel",
+                "spice>poivre",
+                "spiced>tabasco",
+                "jus>jus de citron",
+                "herb>céleri",
+                "other>glace"
               ]
             },
             "glass": "highball",
@@ -140,18 +145,18 @@
             "name": "Mojito",
             "ingredients": {
               "alcool": [
-                "rhum"
+                "spirit>rhum"
               ],
               "soft": [
-                "sirop de sucre de canne",
-                "jus de citron vert",
+                "sirops>sirop de sucre de canne",
+                "jus>jus de citron vert",
                 "soda"
               ],
               "side": [
-                "menthe",
-                "citron vert",
-                "sucre",
-                "glace"
+                "herb>menthe",
+                "fruit>citron vert",
+                "sweetener>sucre",
+                "other>glace"
               ]
             },
             "glass": "verre a cocktail",
@@ -169,11 +174,11 @@
             "name": "Piña Colada",
             "ingredients": {
               "alcool": [
-                "rhum"
+                "spirit>rhum"
               ],
               "soft": [
-                "jus d'ananas",
-                "lait de coco"
+                "jus>jus d'ananas",
+                "jus>lait de coco"
               ],
               "side": []
             },
@@ -192,10 +197,10 @@
             "name": "Gin Tonic",
             "ingredients": {
               "alcool": [
-                "gin"
+                "spirit>gin"
               ],
               "soft": [
-                "schweppes tonic"
+                "soda>Schweppes Tonic"
               ],
               "side": [
                 "citron"
@@ -214,11 +219,11 @@
             "name": "Tequila Sunrise",
             "ingredients": {
               "alcool": [
-                "tequila"
+                "spirit>tequila"
               ],
               "soft": [
-                "jus d'orange",
-                "sirop de grenadine"
+                "jus>jus d'orange",
+                "sirops>sirop de grenadine"
               ],
               "side": [
                 "orange slice",
@@ -238,15 +243,15 @@
             "name": "Cosmopolitan",
             "ingredients": {
               "alcool": [
-                "vodka"
+                "spirit>vodka"
               ],
               "soft": [
-                "jus de canneberge",
-                "triple sec",
-                "jus de citron"
+                "jus>jus de canneberge",
+                "spirit>liqueur>triple sec",
+                "jus>jus de citron"
               ],
               "side": [
-                "zeste d'orange"
+                "fruit>zeste d'orange"
               ]
             },
             "glass": "verre a cocktail",
@@ -264,14 +269,14 @@
             "name": "Margarita",
             "ingredients": {
               "alcool": [
-                "tequila"
+                "spirit>tequila"
               ],
               "soft": [
-                "jus de citron",
-                "sirop d'agave"
+                "jus>jus de citron",
+                "sirops>sirop d'agave"
               ],
               "side": [
-                "sel (pour le bord du verre)"
+                "other>sel (pour le bord du verre)"
               ]
             },
             "glass": "verre a cocktail",
@@ -289,10 +294,10 @@
             "name": "Martini",
             "ingredients": {
               "alcool": [
-                "gin"
+                "spirit>gin"
               ],
               "side": [
-                "vermouth"
+                "fortifiedWine>vermouth"
               ],
               "soft": []
             },
@@ -311,11 +316,11 @@
             "name": "Whiskey Sour",
             "ingredients": {
               "alcool": [
-                "whisky"
+                "spirit>whisky"
               ],
               "soft": [
-                "jus de citron",
-                "sirop de sucre"
+                "jus>jus de citron",
+                "sirops>sirop de sucre"
               ],
               "side": []
             },
@@ -334,11 +339,11 @@
             "name": "Espresso Martini",
             "ingredients": {
               "alcool": [
-                "vodka"
+                "spirit>vodka"
               ],
               "soft": [
-                "liqueur de café",
-                "expresso"
+                "spirit>liqueur>liqueur de café",
+                "soda>Expresso"
               ],
               "side": []
             },
@@ -351,6 +356,29 @@
               "bitter": 0.7,
               "sour": 0.1,
               "spiced": 0.2
+            }
+          },
+          {
+            "name": "Monaco",
+            "ingredients": {
+              "alcool": [
+                "beer>regular>blonde"
+              ],
+              "soft": [
+                "sirops>sirop de grenadine",
+                "soda>Limonade"
+              ],
+              "side": []
+            },
+            "glass": "verre a biere",
+            "objects": [
+              "cuillère"
+            ],
+            "taste": {
+              "sweet": 0.8,
+              "bitter": 0.1,
+              "sour": 0.2,
+              "spiced": 0.1
             }
           }
         ],
@@ -426,7 +454,8 @@
     ],
     "fruit": [
       "citron",
-      "citron vert"
+      "citron vert",
+      "zeste d'orange"
     ],
     "herb": [
       "menthe",
@@ -434,10 +463,12 @@
       "thym",
       "romarin",
       "ciboulette",
-      "coriandre"
+      "coriandre",
+      "céleri"
     ],
     "other": [
-      "sel"
+      "sel",
+      "glace"
     ]
   }
 }
