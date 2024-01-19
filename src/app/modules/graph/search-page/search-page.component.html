@@ -1,8 +1,23 @@
 <div class="main-container">
   <p>search-page works!</p>
-  <select multiple name="ingredients" id="ingredients">
+  <select
+    multiple
+    name="ingredients"
+    [(ngModel)]="searchIngredients"
+    (ngModelChange)="onIngredientSelect()">
     <option *ngFor="let ingredient of ingredients" value="{{ ingredient }}">
       {{ ingredient }}
     </option>
   </select>
+  <div *ngIf="searchResults.length > 0">
+    <p>Search Results:</p>
+    <ul>
+      <li *ngFor="let result of searchResults">
+        <a [routerLink]="['/graph', result.name]">{{ result.name }}</a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="searchResults.length === 0 && searchIngredients.length > 0">
+    <p>No results found</p>
+  </div>
 </div>

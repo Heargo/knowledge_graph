@@ -20,6 +20,10 @@ export class GraphService {
     this.graphData = jsonData;
   }
 
+  private path(current: string, append: string) {
+    return current + (current === '' ? '' : '>') + append;
+  }
+
   private walk(
     o: any,
     func: (key: any, value: any, nesting: string) => void,
@@ -27,12 +31,13 @@ export class GraphService {
   ) {
     for (var i in o) {
       func.apply(this, [i, o[i], nesting]);
-      if (o[i] !== null && typeof o[i] == 'object') {
+      if (o[i] !== null && typeof o[i] === 'object' && !Array.isArray(o[i])) {
         //going one step down in the object tree!!
-        this.walk(o[i], func, nesting + (nesting === '' ? '' : ' ') + i);
+        this.walk(o[i], func, this.path(nesting, i));
       }
     }
   }
+
   private pushUnique(array: any[], item: any) {
     if (array.indexOf(item) === -1) {
       array.push(item);
@@ -43,44 +48,45 @@ export class GraphService {
     const ingredients: string[] = [];
 
     // sides
-    for (const [key, value] of Object.entries(this.graphData.sideIngredients)) {
-      this.pushUnique(ingredients, key);
-      if (typeof value === 'string') {
-        this.pushUnique(ingredients, value);
-      } else {
-        value.forEach((item: string) => {
-          this.pushUnique(ingredients, item);
-        });
+    this.walk(
+      this.graphData.sideIngredients,
+      (key: string, value: any, nesting: string) => {
+        this.pushUnique(ingredients, this.path(nesting, key));
+        if (typeof value === 'string') {
+          this.pushUnique(ingredients, this.path(nesting, value));
+        } else if (Array.isArray(value)) {
+          value.forEach((item: string) => {
+            this.pushUnique(
+              ingredients,
+              this.path(nesting, this.path(key, item))
+            ); //
+          });
+        }
       }
-    }
+    );
 
     // alcool
     for (const type of ['low', 'medium', 'high'] as (keyof AlcoolRaw)[]) {
       this.walk(
         this.graphData.drinks.alcool.raw[type],
         (key: string, value: any, nesting: string) => {
-          if (ingredients.indexOf(key) === -1) {
-            ingredients.push(nesting + (nesting === '' ? '' : ' ') + key);
-          }
+          this.pushUnique(ingredients, this.path(nesting, key));
 
           // add string and array values
           if (typeof value === 'string') {
-            this.pushUnique(
-              ingredients,
-              nesting + (nesting === '' ? '' : ' ') + value
-            );
+            this.pushUnique(ingredients, this.path(nesting, value));
           } else if (Array.isArray(value)) {
             value.forEach((item: string) => {
               this.pushUnique(
                 ingredients,
-                nesting + (nesting === '' ? '' : ' ') + item
+                this.path(nesting, this.path(key, item))
               );
             });
           }
         }
       );
     }
-    return ingredients;
+    return ingredients.sort();
   }
 
   getCocktail(name: string) {
@@ -99,12 +105,16 @@ export class GraphService {
 
   getCocktailByIngredient(ingredient: string) {
     return this.graphData.drinks.alcool.mixed.cocktails.filter(cocktail => {
-      return (
-        cocktail.ingredients.alcool.includes(ingredient) ||
-        cocktail.ingredients.soft.includes(ingredient) ||
-        cocktail.ingredients.side.includes(ingredient)
-      );
+      return this.cocktailContainsIngredient(cocktail, ingredient);
     });
+  }
+
+  cocktailContainsIngredient(cocktail: Cocktail, ingredient: string) {
+    return (
+      cocktail.ingredients.alcool.some(i => i.startsWith(ingredient)) ||
+      cocktail.ingredients.soft.some(i => i.startsWith(ingredient)) ||
+      cocktail.ingredients.side.some(i => i.startsWith(ingredient))
+    );
   }
 
   getCocktailByGlass(glass: string) {
