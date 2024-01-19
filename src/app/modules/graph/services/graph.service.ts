@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BartenderGraph, Cocktail, Taste } from '../models/graph.models';
+import {
+  AlcoolRaw,
+  BartenderGraph,
+  Cocktail,
+  Taste,
+} from '../models/graph.models';
 import * as jsonData from '../../../../assets/json/alchool.json';
 import { HttpClient } from '@angular/common/http';
 import { IngredientToChange } from '../models/dto.models';
@@ -15,12 +20,16 @@ export class GraphService {
     this.graphData = jsonData;
   }
 
-  private walk(o: any, func: (key: any, value: any) => void) {
+  private walk(
+    o: any,
+    func: (key: any, value: any, nesting: string) => void,
+    nesting: string = ''
+  ) {
     for (var i in o) {
-      func.apply(this, [i, o[i]]);
+      func.apply(this, [i, o[i], nesting]);
       if (o[i] !== null && typeof o[i] == 'object') {
         //going one step down in the object tree!!
-        this.walk(o[i], func);
+        this.walk(o[i], func, nesting + (nesting === '' ? '' : ' ') + i);
       }
     }
   }
@@ -46,20 +55,31 @@ export class GraphService {
     }
 
     // alcool
-    this.walk(this.graphData.drinks.alcool.raw, (key: string, value: any) => {
-      if (ingredients.indexOf(key) === -1) {
-        ingredients.push(key);
-      }
+    for (const type of ['low', 'medium', 'high'] as (keyof AlcoolRaw)[]) {
+      this.walk(
+        this.graphData.drinks.alcool.raw[type],
+        (key: string, value: any, nesting: string) => {
+          if (ingredients.indexOf(key) === -1) {
+            ingredients.push(nesting + (nesting === '' ? '' : ' ') + key);
+          }
 
-      // add string and array values
-      if (typeof value === 'string') {
-        this.pushUnique(ingredients, value);
-      } else if (Array.isArray(value)) {
-        value.forEach((item: string) => {
-          this.pushUnique(ingredients, item);
-        });
-      }
-    });
+          // add string and array values
+          if (typeof value === 'string') {
+            this.pushUnique(
+              ingredients,
+              nesting + (nesting === '' ? '' : ' ') + value
+            );
+          } else if (Array.isArray(value)) {
+            value.forEach((item: string) => {
+              this.pushUnique(
+                ingredients,
+                nesting + (nesting === '' ? '' : ' ') + item
+              );
+            });
+          }
+        }
+      );
+    }
     return ingredients;
   }
 

@@ -78,7 +78,7 @@ export interface Low {
 }
 
 export interface Beer {
-  light: BeerSubType;
+  regular: BeerSubType;
   IPA: BeerSubType;
   dark: Dark;
 }
