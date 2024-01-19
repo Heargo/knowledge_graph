@@ -62,7 +62,8 @@ export class GraphService {
             ); //
           });
         }
-      }
+      },
+      'sides'
     );
 
     // alcool
@@ -83,9 +84,29 @@ export class GraphService {
               );
             });
           }
-        }
+        },
+        'alcool'
       );
     }
+
+    // soft
+    this.walk(
+      this.graphData.drinks.soft,
+      (key: string, value: any, nesting: string) => {
+        this.pushUnique(ingredients, this.path(nesting, key));
+        if (typeof value === 'string') {
+          this.pushUnique(ingredients, this.path(nesting, value));
+        } else if (Array.isArray(value)) {
+          value.forEach((item: string) => {
+            this.pushUnique(
+              ingredients,
+              this.path(nesting, this.path(key, item))
+            );
+          });
+        }
+      },
+      'soft'
+    );
     return ingredients.sort();
   }
 
@@ -110,11 +131,22 @@ export class GraphService {
   }
 
   cocktailContainsIngredient(cocktail: Cocktail, ingredient: string) {
-    return (
-      cocktail.ingredients.alcool.some(i => i.startsWith(ingredient)) ||
-      cocktail.ingredients.soft.some(i => i.startsWith(ingredient)) ||
-      cocktail.ingredients.side.some(i => i.startsWith(ingredient))
-    );
+    const category = ingredient.split('>')[0];
+    //subsrt
+    ingredient = ingredient.replace(category + '>', '');
+    if (category === 'alcool') {
+      return cocktail.ingredients.alcool.some(i => i.startsWith(ingredient));
+    } else if (category === 'soft') {
+      return cocktail.ingredients.soft.some(i => i.startsWith(ingredient));
+    } else if (category === 'sides') {
+      return cocktail.ingredients.side.some(i => i.startsWith(ingredient));
+    } else {
+      return (
+        cocktail.ingredients.alcool.some(i => i.startsWith(ingredient)) ||
+        cocktail.ingredients.soft.some(i => i.startsWith(ingredient)) ||
+        cocktail.ingredients.side.some(i => i.startsWith(ingredient))
+      );
+    }
   }
 
   getCocktailByGlass(glass: string) {
