@@ -67,6 +67,18 @@
             step="0.05"
             placeholder="nb of side to change" />
         </div>
+        <div>
+          <p>Variation</p>
+          <input
+            type="number"
+            formControlName="variation"
+            class="basic"
+            id="variation"
+            max="1"
+            min="0"
+            step="0.05"
+            placeholder="ingredient variation" />
+        </div>
       </div>
       <div class="flex-row">
         <button type="submit" (click)="generateNewCocktail()" class="primary">
