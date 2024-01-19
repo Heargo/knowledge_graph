@@ -51,7 +51,7 @@
       "raw": {
         "low": {
           "beer": {
-            "light": {
+            "regular": {
               "blanche": [],
               "blonde": [],
               "rousse": []
@@ -109,8 +109,12 @@
           {
             "name": "Bloody Mary",
             "ingredients": {
-              "alcool": ["vodka"],
-              "soft": ["jus de tomate"],
+              "alcool": [
+                "vodka"
+              ],
+              "soft": [
+                "jus de tomate"
+              ],
               "side": [
                 "sel",
                 "poivre",
@@ -122,7 +126,9 @@
               ]
             },
             "glass": "highball",
-            "objects": ["shaker"],
+            "objects": [
+              "shaker"
+            ],
             "taste": {
               "sweet": 0.2,
               "bitter": 0.4,
@@ -133,12 +139,25 @@
           {
             "name": "Mojito",
             "ingredients": {
-              "alcool": ["rhum"],
-              "soft": ["sirop de sucre de canne", "jus de citron vert", "soda"],
-              "side": ["menthe", "citron vert", "sucre", "glace"]
+              "alcool": [
+                "rhum"
+              ],
+              "soft": [
+                "sirop de sucre de canne",
+                "jus de citron vert",
+                "soda"
+              ],
+              "side": [
+                "menthe",
+                "citron vert",
+                "sucre",
+                "glace"
+              ]
             },
             "glass": "verre a cocktail",
-            "objects": ["pilon"],
+            "objects": [
+              "pilon"
+            ],
             "taste": {
               "sweet": 0.6,
               "bitter": 0.2,
@@ -149,12 +168,19 @@
           {
             "name": "Piña Colada",
             "ingredients": {
-              "alcool": ["rhum"],
-              "soft": ["jus d'ananas", "lait de coco"],
+              "alcool": [
+                "rhum"
+              ],
+              "soft": [
+                "jus d'ananas",
+                "lait de coco"
+              ],
               "side": []
             },
             "glass": "verre a cocktail",
-            "objects": ["shaker"],
+            "objects": [
+              "shaker"
+            ],
             "taste": {
               "sweet": 0.9,
               "bitter": 0.1,
@@ -162,13 +188,18 @@
               "spiced": 0.1
             }
           },
-
           {
             "name": "Gin Tonic",
             "ingredients": {
-              "alcool": ["gin"],
-              "soft": ["schweppes tonic"],
-              "side": ["citron"]
+              "alcool": [
+                "gin"
+              ],
+              "soft": [
+                "schweppes tonic"
+              ],
+              "side": [
+                "citron"
+              ]
             },
             "glass": "verre a cocktail",
             "objects": [],
@@ -182,9 +213,17 @@
           {
             "name": "Tequila Sunrise",
             "ingredients": {
-              "alcool": ["tequila"],
-              "soft": ["jus d'orange", "sirop de grenadine"],
-              "side": ["orange slice", "cerise"]
+              "alcool": [
+                "tequila"
+              ],
+              "soft": [
+                "jus d'orange",
+                "sirop de grenadine"
+              ],
+              "side": [
+                "orange slice",
+                "cerise"
+              ]
             },
             "glass": "verre a cocktail",
             "objects": [],
@@ -198,12 +237,22 @@
           {
             "name": "Cosmopolitan",
             "ingredients": {
-              "alcool": ["vodka"],
-              "soft": ["jus de canneberge", "triple sec", "jus de citron"],
-              "side": ["zeste d'orange"]
+              "alcool": [
+                "vodka"
+              ],
+              "soft": [
+                "jus de canneberge",
+                "triple sec",
+                "jus de citron"
+              ],
+              "side": [
+                "zeste d'orange"
+              ]
             },
             "glass": "verre a cocktail",
-            "objects": ["shaker"],
+            "objects": [
+              "shaker"
+            ],
             "taste": {
               "sweet": 0.7,
               "bitter": 0.3,
@@ -214,12 +263,21 @@
           {
             "name": "Margarita",
             "ingredients": {
-              "alcool": ["tequila"],
-              "soft": ["jus de citron", "sirop d'agave"],
-              "side": ["sel (pour le bord du verre)"]
+              "alcool": [
+                "tequila"
+              ],
+              "soft": [
+                "jus de citron",
+                "sirop d'agave"
+              ],
+              "side": [
+                "sel (pour le bord du verre)"
+              ]
             },
             "glass": "verre a cocktail",
-            "objects": ["shaker"],
+            "objects": [
+              "shaker"
+            ],
             "taste": {
               "sweet": 0.4,
               "bitter": 0.2,
@@ -230,8 +288,12 @@
           {
             "name": "Martini",
             "ingredients": {
-              "alcool": ["gin"],
-              "side": ["vermouth"],
+              "alcool": [
+                "gin"
+              ],
+              "side": [
+                "vermouth"
+              ],
               "soft": []
             },
             "taste": {
@@ -241,13 +303,20 @@
               "spiced": 0.1
             },
             "glass": "verre a cocktail",
-            "objects": ["shaker"]
+            "objects": [
+              "shaker"
+            ]
           },
           {
             "name": "Whiskey Sour",
             "ingredients": {
-              "alcool": ["whisky"],
-              "soft": ["jus de citron", "sirop de sucre"],
+              "alcool": [
+                "whisky"
+              ],
+              "soft": [
+                "jus de citron",
+                "sirop de sucre"
+              ],
               "side": []
             },
             "taste": {
@@ -257,17 +326,26 @@
               "spiced": 0.2
             },
             "glass": "verre a cocktail",
-            "objects": ["shaker"]
+            "objects": [
+              "shaker"
+            ]
           },
           {
             "name": "Espresso Martini",
             "ingredients": {
-              "alcool": ["vodka"],
-              "soft": ["liqueur de café", "expresso"],
+              "alcool": [
+                "vodka"
+              ],
+              "soft": [
+                "liqueur de café",
+                "expresso"
+              ],
               "side": []
             },
             "glass": "verre a cocktail",
-            "objects": ["shaker"],
+            "objects": [
+              "shaker"
+            ],
             "taste": {
               "sweet": 0.8,
               "bitter": 0.7,
@@ -285,7 +363,10 @@
   },
   "object": {
     "container": {
-      "mixer": ["shaker", "blender"],
+      "mixer": [
+        "shaker",
+        "blender"
+      ],
       "serving": [
         "verre a cocktail",
         "verre a vin",
@@ -294,11 +375,21 @@
         "verre a biere",
         "verre a whisky"
       ],
-      "doser": ["2cl doseur", "4cl doseur", "5cl doseur"]
+      "doser": [
+        "2cl doseur",
+        "4cl doseur",
+        "5cl doseur"
+      ]
     },
     "nonContainer": {
-      "mixer": ["cuillère"],
-      "serving": ["paille", "parasol", "dessous de verre"],
+      "mixer": [
+        "cuillère"
+      ],
+      "serving": [
+        "paille",
+        "parasol",
+        "dessous de verre"
+      ],
       "tools": [
         "couteau",
         "planche a découper",
@@ -311,9 +402,18 @@
     }
   },
   "sideIngredients": {
-    "decoration": ["colorant alimentaire", "sucre glace", "sucre en poudre"],
-    "sweetener": ["vanille", "sucre"],
-    "bitter": ["bitter"],
+    "decoration": [
+      "colorant alimentaire",
+      "sucre glace",
+      "sucre en poudre"
+    ],
+    "sweetener": [
+      "vanille",
+      "sucre"
+    ],
+    "bitter": [
+      "bitter"
+    ],
     "sour": [],
     "spice": [
       "cannelle",
@@ -324,8 +424,20 @@
       "clou de girofle",
       "tabasco"
     ],
-    "fruit": ["citron", "citron vert"],
-    "herb": ["menthe", "basilic", "thym", "romarin", "ciboulette", "coriandre"],
-    "other": ["sel"]
+    "fruit": [
+      "citron",
+      "citron vert"
+    ],
+    "herb": [
+      "menthe",
+      "basilic",
+      "thym",
+      "romarin",
+      "ciboulette",
+      "coriandre"
+    ],
+    "other": [
+      "sel"
+    ]
   }
 }
