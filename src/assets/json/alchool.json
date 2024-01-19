@@ -294,11 +294,10 @@
             "name": "Martini",
             "ingredients": {
               "alcool": [
-                "spirit>gin"
-              ],
-              "side": [
+                "spirit>gin",
                 "fortifiedWine>vermouth"
               ],
+              "side": [],
               "soft": []
             },
             "taste": {
