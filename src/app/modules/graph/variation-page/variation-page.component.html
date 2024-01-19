@@ -1,10 +1,24 @@
 <div class="main-container flex-row top center">
   <div class="flex-col">
-    <h3>Inspiration</h3>
+    <div class="flex-row middle left">
+      <h3>Inspiration</h3>
+      <img
+        (click)="pickNewRandomCocktail()"
+        class="random-btn"
+        src="assets/icons/dice.svg"
+        alt="" />
+    </div>
     <app-cocktail-card [cocktail]="cocktail"></app-cocktail-card>
   </div>
   <div class="flex-col" *ngIf="creationForm">
-    <h3>Settings</h3>
+    <div class="flex-row middle left">
+      <h3>Settings</h3>
+      <img
+        (click)="generateNewRandomCocktail()"
+        class="random-btn"
+        src="assets/icons/dice.svg"
+        alt="" />
+    </div>
     <form [formGroup]="creationForm" class="flex-col center top">
       <input
         type="number"
@@ -57,9 +71,6 @@
       <div class="flex-row">
         <button type="submit" (click)="generateNewCocktail()" class="primary">
           Generate new cocktail
-        </button>
-        <button (click)="generateNewRandomCocktail()" class="primary">
-          Random
         </button>
       </div>
     </form>

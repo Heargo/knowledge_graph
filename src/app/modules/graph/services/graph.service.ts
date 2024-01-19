@@ -70,6 +70,18 @@ export class GraphService {
     const overlap = cocktail1.ingredients.alcool.filter(ingredient => {
       return cocktail2.ingredients.alcool.includes(ingredient);
     });
+    //add soft ingredients
+    cocktail1.ingredients.soft.forEach(ingredient => {
+      if (cocktail2.ingredients.soft.includes(ingredient)) {
+        overlap.push(ingredient);
+      }
+    });
+    //add side ingredients
+    cocktail1.ingredients.side.forEach(ingredient => {
+      if (cocktail2.ingredients.side.includes(ingredient)) {
+        overlap.push(ingredient);
+      }
+    });
     return overlap;
   }
 

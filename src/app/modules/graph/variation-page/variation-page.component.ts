@@ -40,6 +40,10 @@ export class VariationPageComponent extends BaseAppComponent implements OnInit {
     });
   }
 
+  pickNewRandomCocktail() {
+    this.cocktail = this.graphService.getRandomCocktail();
+  }
+
   generateNewRandomCocktail() {
     //update values in form
     this.creationForm.patchValue({
