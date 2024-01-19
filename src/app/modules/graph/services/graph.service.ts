@@ -3,6 +3,7 @@ import {
   AlcoolRaw,
   BartenderGraph,
   Cocktail,
+  Ingredients,
   Taste,
 } from '../models/graph.models';
 import * as jsonData from '../../../../assets/json/alchool.json';
@@ -107,6 +108,7 @@ export class GraphService {
       },
       'soft'
     );
+    ingredients.push('alcool', 'soft', 'sides');
     return ingredients.sort();
   }
 
@@ -134,17 +136,22 @@ export class GraphService {
     const category = ingredient.split('>')[0];
     //subsrt
     ingredient = ingredient.replace(category + '>', '');
-    if (category === 'alcool') {
-      return cocktail.ingredients.alcool.some(i => i.startsWith(ingredient));
-    } else if (category === 'soft') {
-      return cocktail.ingredients.soft.some(i => i.startsWith(ingredient));
-    } else if (category === 'sides') {
-      return cocktail.ingredients.side.some(i => i.startsWith(ingredient));
+    if (ingredient === category) {
+      ingredient = '';
+    }
+    if (['alcool', 'soft', 'side'].includes(category)) {
+      return cocktail.ingredients[category as keyof Ingredients].some(
+        (i: string) => i.startsWith(ingredient)
+      );
     } else {
       return (
-        cocktail.ingredients.alcool.some(i => i.startsWith(ingredient)) ||
-        cocktail.ingredients.soft.some(i => i.startsWith(ingredient)) ||
-        cocktail.ingredients.side.some(i => i.startsWith(ingredient))
+        cocktail.ingredients.alcool.some((i: string) =>
+          i.startsWith(ingredient)
+        ) ||
+        cocktail.ingredients.soft.some((i: string) =>
+          i.startsWith(ingredient)
+        ) ||
+        cocktail.ingredients.side.some((i: string) => i.startsWith(ingredient))
       );
     }
   }
