@@ -15,8 +15,52 @@ export class GraphService {
     this.graphData = jsonData;
   }
 
+  private walk(o: any, func: (key: any, value: any) => void) {
+    for (var i in o) {
+      func.apply(this, [i, o[i]]);
+      if (o[i] !== null && typeof o[i] == 'object') {
+        //going one step down in the object tree!!
+        this.walk(o[i], func);
+      }
+    }
+  }
+  private pushUnique(array: any[], item: any) {
+    if (array.indexOf(item) === -1) {
+      array.push(item);
+    }
+  }
+
   getAllIngredients() {
-    return [];
+    const ingredients: string[] = [];
+
+    // sides
+    for (const [key, value] of Object.entries(this.graphData.sideIngredients)) {
+      this.pushUnique(ingredients, key);
+      if (typeof value === 'string') {
+        this.pushUnique(ingredients, value);
+      } else {
+        value.forEach((item: string) => {
+          this.pushUnique(ingredients, item);
+        });
+      }
+    }
+
+    // alcool
+    this.walk(this.graphData.drinks.alcool.raw, (key: string, value: any) => {
+      if (ingredients.indexOf(key) === -1) {
+        ingredients.push(key);
+      }
+
+      // add string and array values
+      if (typeof value === 'string') {
+        this.pushUnique(ingredients, value);
+      } else if (Array.isArray(value)) {
+        value.forEach((item: string) => {
+          this.pushUnique(ingredients, item);
+        });
+      }
+    });
+    return ingredients;
   }
 
   getCocktail(name: string) {
