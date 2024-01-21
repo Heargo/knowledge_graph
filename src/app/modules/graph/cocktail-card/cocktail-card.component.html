@@ -3,15 +3,21 @@
   <div class="ingredients flex-col left top">
     <h4 *ngIf="cocktail.ingredients.alcool.length > 0">Alcool</h4>
     <div class="alcool flex-row left middle wrap">
-      <p *ngFor="let ing of cocktail.ingredients.alcool">{{ ing }}</p>
+      <p *ngFor="let ing of cocktail.ingredients.alcool">
+        {{ ing | cleanValue }}
+      </p>
     </div>
     <h4 *ngIf="cocktail.ingredients.soft.length > 0">Softs</h4>
     <div class="non-alcool flex-row left middle wrap">
-      <p *ngFor="let ing of cocktail.ingredients.soft">{{ ing }}</p>
+      <p *ngFor="let ing of cocktail.ingredients.soft">
+        {{ ing | cleanValue }}
+      </p>
     </div>
     <h4 *ngIf="cocktail.ingredients.side.length > 0">Side</h4>
     <div class="other flex-row left middle wrap">
-      <p *ngFor="let ing of cocktail.ingredients.side">{{ ing }}</p>
+      <p *ngFor="let ing of cocktail.ingredients.side">
+        {{ ing | cleanValue }}
+      </p>
     </div>
   </div>
   <div class="tastes flex-col left top">

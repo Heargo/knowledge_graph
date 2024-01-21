@@ -7,10 +7,17 @@ import { SharedModule } from '../../shared/shared.module';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { VariationPageComponent } from './variation-page/variation-page.component';
 import { CocktailCardComponent } from './cocktail-card/cocktail-card.component';
+import { CleanValuePipe } from './pipes/cleanValue.pipe';
 
 @NgModule({
-  declarations: [GraphPageComponent, AnimatedListComponent, SearchPageComponent, VariationPageComponent, CocktailCardComponent],
-  imports: [CommonModule, GraphRoutingModule, SharedModule],
+  declarations: [
+    GraphPageComponent,
+    AnimatedListComponent,
+    SearchPageComponent,
+    VariationPageComponent,
+    CocktailCardComponent,
+  ],
+  imports: [CommonModule, GraphRoutingModule, SharedModule, CleanValuePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class GraphModule {}
