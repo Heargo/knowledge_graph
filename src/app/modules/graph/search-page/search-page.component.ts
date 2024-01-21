@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { GraphService } from '../services/graph.service';
-import { Cocktail, Ingredients } from '../models/graph.models';
+import { Cocktail } from '../models/graph.models';
 
 @Component({
   selector: 'app-search-page',
@@ -9,7 +9,6 @@ import { Cocktail, Ingredients } from '../models/graph.models';
 })
 export class SearchPageComponent {
   protected searchResults: Cocktail[] = [];
-  protected searchIngredients: string[] = [];
   protected ingredients: string[] = [];
 
   constructor(private readonly graphService: GraphService) {
@@ -40,9 +39,9 @@ export class SearchPageComponent {
     });
   }
 
-  onIngredientSelect() {
+  onIngredientSelect(ingredients: any) {
     // get ingredients required in option
-    const ings = this.searchIngredients;
+    const ings = ingredients;
     this.searchResults = this.getByIngredients(ings);
   }
 }

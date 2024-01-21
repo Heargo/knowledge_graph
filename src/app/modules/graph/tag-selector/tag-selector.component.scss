@@ -1,0 +1,69 @@
+.tag-selector {
+  position: relative;
+  height: fit-content;
+  width: 100%;
+}
+.input {
+  width: calc(100% - 1rem);
+  border-radius: 10px;
+  padding: 0 0.5rem;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  gap: 0.2rem;
+  input {
+    //take all remaining space in the container
+    flex-grow: 1;
+    outline: none;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+  }
+  p {
+    background-color: rgb(210, 200, 238);
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+  }
+}
+
+.options {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  transform: translateY(calc(100% + 0.2rem));
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  max-height: 30vh;
+  overflow-y: scroll;
+
+  //alternate background color
+  > *:nth-child(odd) {
+    background-color: rgb(244, 244, 244);
+  }
+
+  > *:first-child {
+    border-radius: 10px;
+
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+  }
+  > *:last-child {
+    border-radius: 10px;
+
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+  }
+
+  p {
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(210, 200, 238);
+    }
+    &.selected {
+      background-color: rgb(210, 200, 238);
+    }
+  }
+}

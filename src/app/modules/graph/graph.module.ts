@@ -8,6 +8,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { VariationPageComponent } from './variation-page/variation-page.component';
 import { CocktailCardComponent } from './cocktail-card/cocktail-card.component';
 import { CleanValuePipe } from './pipes/cleanValue.pipe';
+import { TagSelectorComponent } from './tag-selector/tag-selector.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CleanValuePipe } from './pipes/cleanValue.pipe';
     SearchPageComponent,
     VariationPageComponent,
     CocktailCardComponent,
+    TagSelectorComponent,
   ],
   imports: [CommonModule, GraphRoutingModule, SharedModule, CleanValuePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

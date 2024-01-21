@@ -1,0 +1,21 @@
+<div class="tag-selector">
+  <div class="input flex-row wrap left middle">
+    <p *ngFor="let tag of selectedTags">{{ tag | cleanValue }}</p>
+    <input
+      [(ngModel)]="search"
+      (ngModelChange)="onSearchTag()"
+      (keyup.enter)="onTagSelectEnter()"
+      (keydown.arrowup)="onMoveCursorUp()"
+      (keydown.arrowdown)="onMoveCursorDown()"
+      (keyup.backspace)="onDeleteLastTag()"
+      type="text" />
+  </div>
+  <div class="options" *ngIf="search">
+    <p
+      *ngFor="let tag of availableTags; let index = index"
+      (click)="onTagSelect(tag)"
+      ngClass="{{ index === cursorPosition ? 'selected' : '' }}">
+      {{ tag }}
+    </p>
+  </div>
+</div>

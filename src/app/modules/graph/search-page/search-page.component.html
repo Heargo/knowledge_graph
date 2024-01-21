@@ -1,21 +1,18 @@
-<div class="main-container">
-  <p>search-page works!</p>
-  <select
-    multiple
-    name="ingredients"
-    [(ngModel)]="searchIngredients"
-    (ngModelChange)="onIngredientSelect()">
-    <option *ngFor="let ingredient of ingredients" value="{{ ingredient }}">
-      {{ ingredient }}
-    </option>
-  </select>
-  <div *ngIf="searchResults.length > 0">
-    <p>Search Results:</p>
-    <div *ngFor="let result of searchResults">
-      <app-cocktail-card [cocktail]="result"></app-cocktail-card>
-    </div>
+<div class="main-container flex-col center top">
+  <h2>What ingredients do you have ?</h2>
+  <div class="form-container w-100">
+    <app-tag-selector
+      [tags]="ingredients"
+      (selectedTagsChange)="onIngredientSelect($event)">
+    </app-tag-selector>
   </div>
-  <div *ngIf="searchResults.length === 0 && searchIngredients.length > 0">
-    <p>No results found</p>
+  <div class="search-result flex-col center w-100">
+    <div
+      *ngIf="searchResults.length > 0"
+      class="flex-row wrap center top w-100">
+      <div *ngFor="let result of searchResults">
+        <app-cocktail-card [cocktail]="result"></app-cocktail-card>
+      </div>
+    </div>
   </div>
 </div>
